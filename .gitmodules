@@ -1,0 +1,3 @@
+[submodule "Knitpack_core"]
+	path = Knitpack_core
+	url = ./Knitpack_core/
