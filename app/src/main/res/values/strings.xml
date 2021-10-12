@@ -3,4 +3,5 @@
     <string name="my_projects_title">My Projects</string>
     <string name="all_projects_title">All Projects</string>
     <string name="misc_title">Misc</string>
+    <string name="add_project">Create Project</string>
 </resources>

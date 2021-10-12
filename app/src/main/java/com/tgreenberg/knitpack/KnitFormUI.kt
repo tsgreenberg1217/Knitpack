@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.tgreenberg.knitpack.KnitFormUI.KnittingDialogLauncher
+import com.tgreenberg.knitpack.KnitFormUI.KnittingTextField
 
 
 object KnitFormUI {
@@ -146,10 +147,7 @@ fun previewUI() {
     Surface(
 
     ) {
-        Column {
-            KnittingDialogLauncher("Pattern", "Chunky herringbone"){}
-            KnittingDialogLauncher("Pattern", null){}
-        }
+        KnittingTextField("Pattern", "Chunky herringbone", "") {}
 
     }
 }

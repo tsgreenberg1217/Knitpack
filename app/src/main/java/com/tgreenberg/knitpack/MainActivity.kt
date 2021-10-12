@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.tgreenberg.knitpack.ui.theme.KnitPackTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,8 +22,14 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize()
                 ) {
+                    val mainPageViewModel = hiltViewModel<MainPageViewModel>()
                     val navControler = rememberNavController()
-                    MainKnitingPage(navControler)
+
+                    MainScaffold(navController = navControler){
+                        MainKnitingPage(
+                            navController = navControler,
+                            viewModel = mainPageViewModel)
+                    }
                 }
             }
         }
@@ -30,15 +37,15 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun mainPreview() {
-    KnitPackTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            val navControler = rememberNavController()
-            MainKnitingPage(navControler)
-        }
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun mainPreview() {
+//    KnitPackTheme {
+//        Surface(
+//            modifier = Modifier.fillMaxSize()
+//        ) {
+//            val navControler = rememberNavController()
+//            MainKnitingPage(navControler)
+//        }
+//    }
+//}
