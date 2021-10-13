@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">KnitPack</string>
-    <string name="my_projects_title">My Projects</string>
-    <string name="all_projects_title">All Projects</string>
-    <string name="misc_title">Misc</string>
-    <string name="add_project">Create Project</string>
+    <string name="title_patterns">Patterns</string>
+    <string name="title_tutorials">Tutorials</string>
+    <string name="title_social">Social</string>
+    <string name="title_personal">Personal</string>
 </resources>
