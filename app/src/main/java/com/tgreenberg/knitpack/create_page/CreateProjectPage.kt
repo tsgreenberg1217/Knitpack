@@ -1,11 +1,10 @@
-package com.tgreenberg.knitpack
+package com.tgreenberg.knitpack.create_page
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -15,10 +14,8 @@ import com.tgreenberg.core.models.ProjectTxt
 import com.tgreenberg.core.models.UIKnittingProject
 
 
-
-
 @Composable
-fun AddProjectPage(
+fun CreateProjectPage(
     submitProject: (ProjectTxt) -> Unit
 ) {
     val knittingProjectViewModel: KnittingProjectViewModel = hiltViewModel()
@@ -77,7 +74,7 @@ fun AddProjectPage(
         KnitFormUI.KnittingDialogLauncher(
             title = "Pattern",
             value = "Chunky Herringbone snood"
-        ){
+        ) {
             setShowDialog(true)
         }
 
@@ -86,7 +83,7 @@ fun AddProjectPage(
         KnitFormUI.KnittingDialogLauncher(
             title = "Yarn",
             value = null
-        ){}
+        ) {}
 
     }
 }
@@ -96,6 +93,6 @@ fun AddProjectPage(
 @Composable
 fun previewAddPage() {
     Surface(modifier = Modifier.fillMaxSize()){
-        AddProjectPage{}
+        CreateProjectPage{}
     }
 }

@@ -1,4 +1,4 @@
-package com.tgreenberg.knitpack
+package com.tgreenberg.knitpack.main_page
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
@@ -7,22 +7,21 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.tgreenberg.knitpack.KnitPackIcons
 import com.tgreenberg.knitpack.ui.theme.Mid_Grey
 import com.tgreenberg.knitpack.ui.theme.Mulberry_Primary
 import com.tgreenberg.knitpack.ui.theme.Off_White
@@ -42,6 +41,7 @@ val iconList = listOf(
 @Composable
 fun MainScaffold(
     navController: NavHostController,
+    onAdd: () -> Unit,
     content: @Composable () -> Unit
 ) {
     val mainViewModel = hiltViewModel<MainPageViewModel>()
@@ -131,7 +131,7 @@ fun MainScaffold(
         floatingActionButtonPosition = FabPosition.Center,
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { mainViewModel.setPage(MainPageRoute.Personal) },
+                onClick = { onAdd() },
                 backgroundColor = Mulberry_Primary
             ) {
                 Icon(

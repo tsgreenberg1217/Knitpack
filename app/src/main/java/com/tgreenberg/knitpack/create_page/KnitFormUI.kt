@@ -1,4 +1,4 @@
-package com.tgreenberg.knitpack
+package com.tgreenberg.knitpack.create_page
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -9,20 +9,18 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.tgreenberg.knitpack.KnitFormUI.KnittingDialogLauncher
-import com.tgreenberg.knitpack.KnitFormUI.KnittingTextField
+import com.tgreenberg.knitpack.R
+import com.tgreenberg.knitpack.create_page.KnitFormUI.KnittingTextField
+import com.tgreenberg.knitpack.ui.theme.Mulberry_Primary
 
 
 object KnitFormUI {
@@ -31,17 +29,22 @@ object KnitFormUI {
     @Composable
     fun KnittingTextField(title: String, hint: String, value: String?, onChange: (String) -> Unit) {
 
-        var source = remember {
+        val source = remember {
             MutableInteractionSource()
         }
 
-        var borderColor = remember {
+        val borderColor = remember {
             mutableStateOf(Color.LightGray)
         }
+        val titleColor = remember {
+            mutableStateOf(Color.Black)
+        }
         if (source.collectIsFocusedAsState().value) {
-            borderColor.value = Color(131, 52, 71)
+            borderColor.value = Mulberry_Primary
+            titleColor.value = Mulberry_Primary
         } else {
             borderColor.value = Color.LightGray
+            titleColor.value = Color.Black
         }
 
         Column {
@@ -49,7 +52,7 @@ object KnitFormUI {
                 text = title,
                 fontFamily = FontFamily(Font(R.font.amiko_bold)),
                 fontSize = 20.sp,
-                color = borderColor.value
+                color = titleColor.value
             )
             TextField(
                 value = value ?: "", onValueChange = onChange,
@@ -79,8 +82,7 @@ object KnitFormUI {
                         )
                     }
                 },
-                modifier = Modifier
-                    .fillMaxWidth()
+                modifier = Modifier.fillMaxWidth()
             )
         }
     }

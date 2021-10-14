@@ -1,4 +1,5 @@
-package com.tgreenberg.knitpack
+package com.tgreenberg.knitpack.main_page
+
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

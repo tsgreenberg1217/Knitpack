@@ -1,5 +1,7 @@
-package com.tgreenberg.knitpack
+package com.tgreenberg.knitpack.main_page
 
+
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,6 +10,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
+import com.tgreenberg.knitpack.create_page.CreateActivity
 import com.tgreenberg.knitpack.ui.theme.KnitPackTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,10 +26,16 @@ class MainActivity : ComponentActivity() {
                     val mainPageViewModel = hiltViewModel<MainPageViewModel>()
                     val navController = rememberNavController()
 
-                    MainScaffold(navController = navController){
+                    MainScaffold(
+                        navController = navController,
+                        onAdd = {
+                            startActivity(Intent(this, CreateActivity::class.java))
+                        }
+                    ) {
                         MainKnitingPage(
                             navController = navController,
-                            viewModel = mainPageViewModel)
+                            viewModel = mainPageViewModel
+                        )
                     }
                 }
             }

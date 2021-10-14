@@ -1,6 +1,6 @@
-package com.tgreenberg.knitpack
+package com.tgreenberg.knitpack.main_page
 
-import KnitPackApi
+
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -9,6 +9,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.tgreenberg.knitpack.R
 
 @Composable
 fun MainKnitingPage(
@@ -23,9 +24,6 @@ fun MainKnitingPage(
 
         composable(MainPageRoute.Patterns.route) {
             DummyView(MainPageRoute.Patterns.route)
-//            AddProjectPage { proj ->
-//                KnitPackApi.postProject(proj)
-//            }
         }
 
         composable(MainPageRoute.Tutorials.route) {
