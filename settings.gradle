@@ -8,3 +8,5 @@ dependencyResolutionManagement {
 rootProject.name = "KnitPack"
 include ':app'
 include ':Knitpack-Core'
+include ':MainPage'
+include ':KnitpackTheme'

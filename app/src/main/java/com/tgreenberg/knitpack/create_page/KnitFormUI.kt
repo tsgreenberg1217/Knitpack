@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.tgreenberg.knitpack.R
 import com.tgreenberg.knitpack.create_page.KnitFormUI.KnittingTextField
-import com.tgreenberg.knitpack.ui.theme.Mulberry_Primary
+import com.example.knitpacktheme.theme.Mulberry_Primary
 
 
 object KnitFormUI {
