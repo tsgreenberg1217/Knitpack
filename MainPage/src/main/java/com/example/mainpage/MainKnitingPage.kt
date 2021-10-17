@@ -9,6 +9,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.knitpack_components.MainPageRoute
 
 @Composable
 fun MainKnitingPage(
@@ -38,12 +39,4 @@ fun MainKnitingPage(
         }
 
     }
-}
-
-
-sealed class MainPageRoute(val route: String, @StringRes val resId: Int) {
-    object Patterns : MainPageRoute("route_patterns", R.string.title_patterns)
-    object Tutorials : MainPageRoute("route_tutorials", R.string.title_tutorials)
-    object Social : MainPageRoute("route_social", R.string.title_social)
-    object Personal : MainPageRoute("route_personal", R.string.title_personal)
 }

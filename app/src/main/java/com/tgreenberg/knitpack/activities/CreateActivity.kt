@@ -1,4 +1,4 @@
-package com.tgreenberg.knitpack.create_page
+package com.tgreenberg.knitpack.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import com.example.knitpacktheme.theme.KnitPackTheme
+import com.example.create_page.CreateProjectPage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

@@ -1,3 +1,18 @@
 [submodule "Knitpack-Core"]
 	path = Knitpack-Core
 	url = git@github.com:tsgreenberg1217/Knitpack-Core.git
+
+[submodule "Knitpack-Theme"]
+	path = Knitpack-Theme
+	url = ./Knitpack-Theme/
+[submodule "MainPage"]
+	path = MainPage
+	url = ./MainPage/
+
+[submodule "CreatePage"]
+	path = CreatePage
+	url = ./CreatePage/
+
+[submodule "Knitpack-Components"]
+	path = Knitpack-Components
+	url = ./Knitpack-Components/

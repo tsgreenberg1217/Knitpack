@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".create_page.CreateActivity"/>
+        <activity android:name=".activities.CreateActivity"/>
 
     </application>
 
