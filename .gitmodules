@@ -5,6 +5,7 @@
 [submodule "Knitpack-Theme"]
 	path = Knitpack-Theme
 	url = ./Knitpack-Theme/
+
 [submodule "MainPage"]
 	path = MainPage
 	url = ./MainPage/
