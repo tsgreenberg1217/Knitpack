@@ -16,4 +16,4 @@
 	url = git@github.com:tsgreenberg1217/Knitpack-Components.git
 [submodule "MainPage"]
 	path = MainPage
-	url = ./MainPage/
+	url = git@github.com:tsgreenberg1217/MainPage.git
