@@ -10,8 +10,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CreatePage" />
+            <option value="$PROJECT_DIR$/Knitpack-Components" />
             <option value="$PROJECT_DIR$/Knitpack-Core" />
+            <option value="$PROJECT_DIR$/Knitpack-Theme" />
+            <option value="$PROJECT_DIR$/MainPage" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
