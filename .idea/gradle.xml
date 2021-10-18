@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/Knitpack-Theme" />
             <option value="$PROJECT_DIR$/MainPage" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
