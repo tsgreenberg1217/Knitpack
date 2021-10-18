@@ -4,16 +4,16 @@
 
 [submodule "Knitpack-Theme"]
 	path = Knitpack-Theme
-	url = ./Knitpack-Theme/
+	url = git@github.com:tsgreenberg1217/Knitpack-Theme.git
 
 [submodule "MainPage"]
 	path = MainPage
-	url = ./MainPage/
+	url = git@github.com:tsgreenberg1217/MainPage.git
 
 [submodule "CreatePage"]
 	path = CreatePage
-	url = ./CreatePage/
+	url = git@github.com:tsgreenberg1217/CreatePage.git
 
 [submodule "Knitpack-Components"]
 	path = Knitpack-Components
-	url = ./Knitpack-Components/
+	url = git@github.com:tsgreenberg1217/Knitpack-Components.git
