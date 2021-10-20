@@ -5,9 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.create_page.CreateProjectPage
+import com.example.knitpack_components.KnitFormUI
 import com.example.knitpacktheme.theme.KnitPackTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -32,4 +35,10 @@ class CreateActivity : ComponentActivity() {
             }
         }
     }
+}
+
+
+@Preview
+@Composable fun checkitout(){
+    KnitFormUI.KnitPictures()
 }

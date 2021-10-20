@@ -77,7 +77,7 @@ dependencies {
     implementation(Compose.hiltNavigation)
     implementation(Compose.ui)
     implementation(Compose.material)
-    implementation(Compose.tooling)
+    implementation(Compose.preview)
     androidTestImplementation(ComposeTesting.testJunit)
     debugImplementation(Compose.tooling)
     implementation(Compose.livedata)
