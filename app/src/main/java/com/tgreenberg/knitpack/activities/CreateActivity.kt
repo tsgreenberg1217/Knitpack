@@ -1,22 +1,33 @@
 package com.tgreenberg.knitpack.activities
 
+import KnitPackApi
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.create_page.CreateProjectPage
-import com.example.knitpack_components.KnitFormUI
+import com.example.create_page.KnittingProjectViewModel
 import com.example.knitpacktheme.theme.KnitPackTheme
+import com.tgreenberg.core.models.KnitUri
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CreateActivity : ComponentActivity() {
+
+    val imageUriState: MutableState<Uri?> = mutableStateOf(null)
+
+    private val knittingProjectViewModel: KnittingProjectViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -25,20 +36,29 @@ class CreateActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    CreateProjectPage(submitProject = {
-                        coroutine.launch {
-                            KnitPackApi.postProject(it)
-                        }
-                    })
+                    val knittingProjectViewModel: KnittingProjectViewModel = hiltViewModel()
+
+                    CreateProjectPage(
+                        knittingProjectViewModel,
+                        launchImage = { imageLauncher.launch(it) },
+                        submitProject = {
+                            coroutine.launch {
+                                KnitPackApi.postProject(it)
+                            }
+                        })
                 }
 
             }
         }
     }
+
+    private val imageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        knittingProjectViewModel.setKnitProjectImage(KnitUri(it))
+    }
 }
 
 
-@Preview
-@Composable fun checkitout(){
-    KnitFormUI.KnitPictures()
-}
+//@Preview
+//@Composable fun checkitout(){
+//    KnitFormUI.KnitPictures()
+//}
