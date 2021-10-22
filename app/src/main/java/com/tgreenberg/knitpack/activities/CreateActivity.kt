@@ -24,9 +24,12 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class CreateActivity : ComponentActivity() {
 
-    val imageUriState: MutableState<Uri?> = mutableStateOf(null)
 
     private val knittingProjectViewModel: KnittingProjectViewModel by viewModels()
+
+    private val imageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        knittingProjectViewModel.setKnitProjectImage(KnitUri(it))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,14 +39,15 @@ class CreateActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    val knittingProjectViewModel: KnittingProjectViewModel = hiltViewModel()
 
                     CreateProjectPage(
                         knittingProjectViewModel,
-                        launchImage = { imageLauncher.launch(it) },
+                        launchImage = {
+                            imageLauncher.launch(it)
+                        },
                         submitProject = {
                             coroutine.launch {
-                                KnitPackApi.postProject(it)
+//                                knittingProjectViewModel.submitProject()
                             }
                         })
                 }
@@ -52,9 +56,7 @@ class CreateActivity : ComponentActivity() {
         }
     }
 
-    private val imageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) {
-        knittingProjectViewModel.setKnitProjectImage(KnitUri(it))
-    }
+
 }
 
 
