@@ -14,7 +14,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.knitpack_components.MainPageRoute
+import com.example.knitpack_components.KnitNavRoutes
 import com.example.knitpack_components.MainScaffold
 import com.example.mainpage.MainKnitingPage
 import com.example.mainpage.MainPageViewModel
@@ -34,18 +34,21 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
                     val currentDestination: NavDestination? = navBackStackEntry?.destination
+
+
                     MainScaffold(
                         onAdd = {
                             startActivity(Intent(this, CreateActivity::class.java))
                         },
                         isSelected = { selectedRoute ->
-                            currentDestination?.hierarchy?.any { h -> h.route == selectedRoute } == true
+                            currentDestination?.hierarchy?.any { h -> h.route == selectedRoute } ?: false
                         },
                         onNavigate = { route ->
                             navController.navigate(route) {
-                                popUpTo(MainPageRoute.Patterns.route) { inclusive = false }
+//                                popUpTo(KnitNavRoutes.PatternsRoutes.PatternGraphRoot.route) {
+//                                    inclusive = false
+//                                }
                                 launchSingleTop = true
-                                restoreState = true
                             }
 
                         }
