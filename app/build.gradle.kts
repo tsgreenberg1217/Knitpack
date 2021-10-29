@@ -81,6 +81,7 @@ dependencies {
     androidTestImplementation(ComposeTesting.testJunit)
     debugImplementation(Compose.tooling)
     implementation(Compose.livedata)
+    implementation(Compose.viewModels)
 
     testImplementation("junit:junit:4.+")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

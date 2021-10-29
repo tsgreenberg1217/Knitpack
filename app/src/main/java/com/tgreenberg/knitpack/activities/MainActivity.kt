@@ -3,6 +3,7 @@ package com.tgreenberg.knitpack.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,6 +35,7 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
                     val currentDestination: NavDestination? = navBackStackEntry?.destination
+//                    Log.d("Backstack test", "${navController.backQueue.map { it.destination.route }} ")
 
 
                     MainScaffold(
@@ -45,10 +47,7 @@ class MainActivity : ComponentActivity() {
                         },
                         onNavigate = { route ->
                             navController.navigate(route) {
-//                                popUpTo(KnitNavRoutes.PatternsRoutes.PatternGraphRoot.route) {
-//                                    inclusive = false
-//                                }
-                                launchSingleTop = true
+                                popUpTo(KnitNavRoutes.PatternsRoutes.PatternFirst.route)
                             }
 
                         }
